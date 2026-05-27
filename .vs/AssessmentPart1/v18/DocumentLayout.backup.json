@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Assessment-Part1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{766D6D01-28B0-4CA6-9988-12876BE8D5AE}|src\\AssessmentApi\\AssessmentApi.csproj|d:\\assessment-part1\\src\\assessmentapi\\services\\orderstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{766D6D01-28B0-4CA6-9988-12876BE8D5AE}|src\\AssessmentApi\\AssessmentApi.csproj|solutionrelative:src\\assessmentapi\\services\\orderstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{766D6D01-28B0-4CA6-9988-12876BE8D5AE}|src\\AssessmentApi\\AssessmentApi.csproj|d:\\assessment-part1\\src\\assessmentapi\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{766D6D01-28B0-4CA6-9988-12876BE8D5AE}|src\\AssessmentApi\\AssessmentApi.csproj|solutionrelative:src\\assessmentapi\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{766D6D01-28B0-4CA6-9988-12876BE8D5AE}|src\\AssessmentApi\\AssessmentApi.csproj|d:\\assessment-part1\\src\\assessmentapi\\services\\customerstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{766D6D01-28B0-4CA6-9988-12876BE8D5AE}|src\\AssessmentApi\\AssessmentApi.csproj|solutionrelative:src\\assessmentapi\\services\\customerstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{766D6D01-28B0-4CA6-9988-12876BE8D5AE}|src\\AssessmentApi\\AssessmentApi.csproj|d:\\assessment-part1\\src\\assessmentapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{766D6D01-28B0-4CA6-9988-12876BE8D5AE}|src\\AssessmentApi\\AssessmentApi.csproj|solutionrelative:src\\assessmentapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{766D6D01-28B0-4CA6-9988-12876BE8D5AE}|src\\AssessmentApi\\AssessmentApi.csproj|d:\\assessment-part1\\src\\assessmentapi\\controllers\\customerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{766D6D01-28B0-4CA6-9988-12876BE8D5AE}|src\\AssessmentApi\\AssessmentApi.csproj|solutionrelative:src\\assessmentapi\\controllers\\customerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderStore.cs",
+              "DocumentMoniker": "D:\\Assessment-Part1\\src\\AssessmentApi\\Services\\OrderStore.cs",
+              "RelativeDocumentMoniker": "src\\AssessmentApi\\Services\\OrderStore.cs",
+              "ToolTip": "D:\\Assessment-Part1\\src\\AssessmentApi\\Services\\OrderStore.cs",
+              "RelativeToolTip": "src\\AssessmentApi\\Services\\OrderStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T08:54:20.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "D:\\Assessment-Part1\\src\\AssessmentApi\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "src\\AssessmentApi\\Controllers\\OrdersController.cs",
+              "ToolTip": "D:\\Assessment-Part1\\src\\AssessmentApi\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "src\\AssessmentApi\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T08:54:13.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomerStore.cs",
+              "DocumentMoniker": "D:\\Assessment-Part1\\src\\AssessmentApi\\Services\\CustomerStore.cs",
+              "RelativeDocumentMoniker": "src\\AssessmentApi\\Services\\CustomerStore.cs",
+              "ToolTip": "D:\\Assessment-Part1\\src\\AssessmentApi\\Services\\CustomerStore.cs",
+              "RelativeToolTip": "src\\AssessmentApi\\Services\\CustomerStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T08:53:54.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CustomersController.cs",
+              "DocumentMoniker": "D:\\Assessment-Part1\\src\\AssessmentApi\\Controllers\\CustomersController.cs",
+              "RelativeDocumentMoniker": "src\\AssessmentApi\\Controllers\\CustomersController.cs",
+              "ToolTip": "D:\\Assessment-Part1\\src\\AssessmentApi\\Controllers\\CustomersController.cs",
+              "RelativeToolTip": "src\\AssessmentApi\\Controllers\\CustomersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T08:53:22.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Assessment-Part1\\src\\AssessmentApi\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "src\\AssessmentApi\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\Assessment-Part1\\src\\AssessmentApi\\Properties\\launchSettings.json",
+              "RelativeToolTip": "src\\AssessmentApi\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-26T07:22:21.918Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

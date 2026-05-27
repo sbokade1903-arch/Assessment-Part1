@@ -1,0 +1,1027 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Assessment Part 1 API",
+    "description": "Orders, customers, and products API for Part 1 of the assessment.",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Customers/{id}": {
+      "get": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Gets a customer by identifier.",
+        "operationId": "GetCustomerById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Customer identifier.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseOfCustomerResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Client error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Orders/{id}": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Gets an order by id.",
+        "operationId": "GetOrderById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Order id.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseOfOrderResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Client error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Orders": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Creates an order.",
+        "operationId": "CreateOrder",
+        "requestBody": {
+          "description": "Order details.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseOfOrderResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Gets a page of products.",
+        "operationId": "GetProducts",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseOfPagedResultOfProductResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Creates a product.",
+        "operationId": "CreateProduct",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProductRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseOfProductResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Gets a product by identifier.",
+        "operationId": "GetProductById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponseOfProductResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Client error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AddressInfo": {
+        "type": "object",
+        "properties": {
+          "line1": {
+            "type": "string",
+            "description": "Address line one.",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "description": "City name.",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "description": "State or province.",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Postal code.",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "description": "Country code.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Postal address details."
+      },
+      "ApiErrorResponse": {
+        "type": "object",
+        "properties": {
+          "traceId": {
+            "type": "string",
+            "description": "Server trace identifier for troubleshooting.",
+            "nullable": true
+          },
+          "statusCode": {
+            "type": "integer",
+            "description": "HTTP status code.",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable error message.",
+            "nullable": true
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "description": "Field-level validation errors, when applicable.",
+            "nullable": true
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "UTC time when the error was created.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Standard error body returned for every API error response."
+      },
+      "ApiResponseOfCustomerResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Indicates whether the request completed successfully."
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable result message.",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/CustomerResponse"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "Server-side trace identifier for support and diagnostics.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Standard success wrapper returned by API endpoints."
+      },
+      "ApiResponseOfOrderResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Indicates whether the request completed successfully."
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable result message.",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/OrderResponse"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "Server-side trace identifier for support and diagnostics.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Standard success wrapper returned by API endpoints."
+      },
+      "ApiResponseOfPagedResultOfProductResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Indicates whether the request completed successfully."
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable result message.",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/PagedResultOfProductResponse"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "Server-side trace identifier for support and diagnostics.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Standard success wrapper returned by API endpoints."
+      },
+      "ApiResponseOfProductResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Indicates whether the request completed successfully."
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable result message.",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/ProductResponse"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "Server-side trace identifier for support and diagnostics.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Standard success wrapper returned by API endpoints."
+      },
+      "CreateOrderItemRequest": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Product identifier.",
+            "format": "int32"
+          },
+          "quantity": {
+            "maximum": 500,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Quantity ordered.",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Product item in a create order request."
+      },
+      "CreateOrderRequest": {
+        "required": [
+          "currency",
+          "orderNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "customerId": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Customer placing the order.",
+            "format": "int32"
+          },
+          "orderNumber": {
+            "maxLength": 40,
+            "minLength": 3,
+            "type": "string",
+            "description": "Client-provided order reference."
+          },
+          "priority": {
+            "maximum": 999,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Order priority where lower values are handled first.",
+            "format": "int32"
+          },
+          "currency": {
+            "maxLength": 3,
+            "minLength": 3,
+            "type": "string",
+            "description": "Currency used for all order amounts."
+          },
+          "items": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateOrderItemRequest"
+            },
+            "description": "Products included in the order.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request body used to create an order."
+      },
+      "CreateProductRequest": {
+        "required": [
+          "currency",
+          "name",
+          "sku"
+        ],
+        "type": "object",
+        "properties": {
+          "sku": {
+            "maxLength": 30,
+            "minLength": 3,
+            "type": "string",
+            "description": "Stock keeping unit."
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 2,
+            "type": "string",
+            "description": "Product display name."
+          },
+          "price": {
+            "maximum": 999999,
+            "minimum": 0.01,
+            "type": "number",
+            "description": "Unit price.",
+            "format": "double"
+          },
+          "currency": {
+            "maxLength": 3,
+            "minLength": 3,
+            "type": "string",
+            "description": "Price currency."
+          },
+          "quantityAvailable": {
+            "maximum": 100000,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Initial available quantity.",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request body used to create a product."
+      },
+      "CustomerInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Customer identifier.",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "description": "Customer name.",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "Email used for order communication.",
+            "nullable": true
+          },
+          "address": {
+            "$ref": "#/components/schemas/AddressInfo"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Customer information embedded in order responses."
+      },
+      "CustomerProfile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Profile identifier.",
+            "format": "int32"
+          },
+          "segment": {
+            "type": "string",
+            "description": "Customer segment name.",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "description": "Whether advanced ordering rules are enabled."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Advanced customer profile model kept in a deliberately long namespace."
+      },
+      "CustomerProfileInfo": {
+        "type": "object",
+        "properties": {
+          "tier": {
+            "type": "string",
+            "description": "Loyalty tier used for pricing rules.",
+            "nullable": true
+          },
+          "paymentTermDays": {
+            "type": "integer",
+            "description": "Default payment term in days.",
+            "format": "int32"
+          },
+          "preferredCurrency": {
+            "type": "string",
+            "description": "Preferred invoice currency.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Customer commercial settings."
+      },
+      "CustomerResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique customer identifier.",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "description": "Customer display name.",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "Customer email address.",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "description": "Whether the customer can place new orders."
+          },
+          "address": {
+            "$ref": "#/components/schemas/AddressInfo"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/CustomerProfileInfo"
+          },
+          "advancedProfile": {
+            "$ref": "#/components/schemas/CustomerProfile"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Customer details returned by the API."
+      },
+      "DeliveryPlan": {
+        "type": "object",
+        "properties": {
+          "carrier": {
+            "type": "string",
+            "description": "Preferred carrier.",
+            "nullable": true
+          },
+          "estimatedDate": {
+            "type": "string",
+            "description": "Estimated delivery date.",
+            "format": "date"
+          },
+          "allowWeekendDelivery": {
+            "type": "boolean",
+            "description": "Whether weekend delivery is allowed."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Delivery planning details."
+      },
+      "InventoryInfo": {
+        "type": "object",
+        "properties": {
+          "quantityAvailable": {
+            "type": "integer",
+            "description": "Quantity available to sell.",
+            "format": "int32"
+          },
+          "warehouse": {
+            "$ref": "#/components/schemas/WarehouseInfo"
+          },
+          "reorderLevel": {
+            "type": "integer",
+            "description": "Reorder threshold.",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Inventory details for a product."
+      },
+      "OrderResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique order identifier.",
+            "format": "int32"
+          },
+          "orderNumber": {
+            "type": "string",
+            "description": "Customer purchase order reference.",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "description": "Current order status.",
+            "nullable": true
+          },
+          "priority": {
+            "type": "integer",
+            "description": "Order priority where lower values are handled first.",
+            "format": "int32"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/CustomerInfo"
+          },
+          "productItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductItem"
+            },
+            "description": "Ordered products.",
+            "nullable": true
+          },
+          "payment": {
+            "$ref": "#/components/schemas/PaymentSummary"
+          },
+          "delivery": {
+            "$ref": "#/components/schemas/DeliveryPlan"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Order details returned by the API."
+      },
+      "PagedResultOfProductResponse": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Current page number.",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Maximum items returned in a page.",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "description": "Total matching item count.",
+            "format": "int32"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductResponse"
+            },
+            "description": "Items in the current page.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Generic page wrapper used for list responses."
+      },
+      "PaymentSummary": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "description": "Transaction currency.",
+            "nullable": true
+          },
+          "subtotal": {
+            "type": "number",
+            "description": "Subtotal before tax.",
+            "format": "double"
+          },
+          "tax": {
+            "type": "number",
+            "description": "Tax amount.",
+            "format": "double"
+          },
+          "total": {
+            "type": "number",
+            "description": "Total including tax.",
+            "format": "double"
+          },
+          "isPaid": {
+            "type": "boolean",
+            "description": "Whether payment has been captured."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Payment totals for an order."
+      },
+      "ProductItem": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "integer",
+            "description": "Product identifier.",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "description": "Product name.",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "Quantity ordered.",
+            "format": "int32"
+          },
+          "unitPrice": {
+            "type": "number",
+            "description": "Unit price.",
+            "format": "double"
+          },
+          "lineTotal": {
+            "type": "number",
+            "description": "Line total.",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Product line item in an order response."
+      },
+      "ProductResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Product identifier.",
+            "format": "int32"
+          },
+          "sku": {
+            "type": "string",
+            "description": "Stock keeping unit.",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Product name.",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "description": "Unit price in the configured currency.",
+            "format": "double"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency used for the price.",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "description": "Whether the product can be sold."
+          },
+          "inventory": {
+            "$ref": "#/components/schemas/InventoryInfo"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Product details returned by the API."
+      },
+      "WarehouseInfo": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Warehouse code.",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "description": "Warehouse city.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Warehouse location details."
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Customers",
+      "description": "Provides customer lookup endpoints."
+    },
+    {
+      "name": "Orders",
+      "description": "Handles order APIs."
+    }
+  ]
+}

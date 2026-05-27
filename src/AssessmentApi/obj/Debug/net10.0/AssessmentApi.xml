@@ -1,0 +1,882 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AssessmentApi</name>
+    </assembly>
+    <members>
+        <member name="T:AssessmentApi.Attributes.ExcludeFromClientGenerationAttribute">
+            <summary>
+            Removes an endpoint or model from the OpenAPI document used for client generation.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Attributes.ExcludeModelFromClientGenerationAttribute">
+            <summary>
+            Marks a schema as internal so generated clients do not expose it.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Controllers.CustomersController">
+            <summary>
+            Provides customer lookup endpoints.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Controllers.CustomersController.#ctor(AssessmentApi.Services.CustomerStore)">
+            <summary>
+            Provides customer lookup endpoints.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Controllers.CustomersController.GetById(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets a customer by identifier.
+            </summary>
+            <param name="id">Customer identifier.</param>
+            <param name="cancellationToken">Request cancellation token.</param>
+            <returns>The requested customer.</returns>
+        </member>
+        <member name="T:AssessmentApi.Controllers.OrdersController">
+            <summary>
+            Handles order APIs.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Controllers.OrdersController.#ctor(AssessmentApi.Services.OrderStore)">
+            <summary>
+            Handles order APIs.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Controllers.OrdersController.GetById(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets an order by id.
+            </summary>
+            <param name="id">Order id.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+        </member>
+        <member name="M:AssessmentApi.Controllers.OrdersController.Create(AssessmentApi.Models.Orders.CreateOrderRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates an order.
+            </summary>
+            <param name="request">Order details.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+        </member>
+        <member name="T:AssessmentApi.Endpoints.ProductEndpoints">
+            <summary>
+            Minimal API endpoint mappings for products.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Endpoints.ProductEndpoints.MapProductEndpoints(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+            <summary>
+            Registers product minimal API endpoints.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Endpoints.ProductEndpoints.GetProducts(System.Int32,System.Int32,AssessmentApi.Services.ProductStore,Microsoft.AspNetCore.Http.HttpContext,System.Threading.CancellationToken)">
+            <summary>
+            Gets a page of products.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Endpoints.ProductEndpoints.GetProductById(System.Int32,AssessmentApi.Services.ProductStore,Microsoft.AspNetCore.Http.HttpContext,System.Threading.CancellationToken)">
+            <summary>
+            Gets a product by identifier.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Endpoints.ProductEndpoints.CreateProduct(AssessmentApi.Models.Products.CreateProductRequest,AssessmentApi.Services.ProductStore,Microsoft.AspNetCore.Http.HttpContext,System.Threading.CancellationToken)">
+            <summary>
+            Creates a product.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Endpoints.InternalHealthResponse">
+            <summary>
+            Internal health response excluded from generated client contracts.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Endpoints.InternalHealthResponse.Status">
+            <summary>
+            Current health status.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Errors.ApiErrorResponse">
+            <summary>
+            Standard error body returned for every API error response.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Errors.ApiErrorResponse.TraceId">
+            <summary>
+            Server trace identifier for troubleshooting.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Errors.ApiErrorResponse.StatusCode">
+            <summary>
+            HTTP status code.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Errors.ApiErrorResponse.Message">
+            <summary>
+            Human-readable error message.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Errors.ApiErrorResponse.Errors">
+            <summary>
+            Field-level validation errors, when applicable.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Errors.ApiErrorResponse.Timestamp">
+            <summary>
+            UTC time when the error was created.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Errors.ApiErrorResponse.Create(Microsoft.AspNetCore.Http.HttpContext,System.Int32,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String[]})">
+            <summary>
+            Creates a standard error response from the current request context.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Common.ApiResponse`1">
+            <summary>
+            Standard success wrapper returned by API endpoints.
+            </summary>
+            <typeparam name="T">The response payload type.</typeparam>
+        </member>
+        <member name="P:AssessmentApi.Models.Common.ApiResponse`1.Success">
+            <summary>
+            Indicates whether the request completed successfully.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Common.ApiResponse`1.Message">
+            <summary>
+            Human-readable result message.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Common.ApiResponse`1.Data">
+            <summary>
+            Response payload.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Common.ApiResponse`1.TraceId">
+            <summary>
+            Server-side trace identifier for support and diagnostics.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Common.PagedResult`1">
+            <summary>
+            Generic page wrapper used for list responses.
+            </summary>
+            <typeparam name="T">The item type in the page.</typeparam>
+        </member>
+        <member name="P:AssessmentApi.Models.Common.PagedResult`1.Page">
+            <summary>
+            Current page number.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Common.PagedResult`1.PageSize">
+            <summary>
+            Maximum items returned in a page.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Common.PagedResult`1.TotalCount">
+            <summary>
+            Total matching item count.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Common.PagedResult`1.Items">
+            <summary>
+            Items in the current page.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Customers.CustomerResponse">
+            <summary>
+            Customer details returned by the API.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerResponse.Id">
+            <summary>
+            Unique customer identifier.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerResponse.Name">
+            <summary>
+            Customer display name.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerResponse.Email">
+            <summary>
+            Customer email address.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerResponse.IsActive">
+            <summary>
+            Whether the customer can place new orders.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerResponse.Address">
+            <summary>
+            Customer billing address.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerResponse.Profile">
+            <summary>
+            Commercial profile for the customer.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerResponse.AdvancedProfile">
+            <summary>
+            Advanced profile model from a long domain namespace.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Customers.CustomerInfo">
+            <summary>
+            Customer information embedded in order responses.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerInfo.Id">
+            <summary>
+            Customer identifier.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerInfo.Name">
+            <summary>
+            Customer name.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerInfo.Email">
+            <summary>
+            Email used for order communication.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerInfo.Address">
+            <summary>
+            Shipping address.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Customers.AddressInfo">
+            <summary>
+            Postal address details.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.AddressInfo.Line1">
+            <summary>
+            Address line one.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.AddressInfo.City">
+            <summary>
+            City name.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.AddressInfo.State">
+            <summary>
+            State or province.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.AddressInfo.PostalCode">
+            <summary>
+            Postal code.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.AddressInfo.Country">
+            <summary>
+            Country code.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Customers.CreateCustomerRequest">
+            <summary>
+            Request body used to create a new customer.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CreateCustomerRequest.Name">
+            <summary>
+            Customer legal or display name.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CreateCustomerRequest.Email">
+            <summary>
+            Customer email address.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Customers.CustomerProfileInfo">
+            <summary>
+            Customer commercial settings.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerProfileInfo.Tier">
+            <summary>
+            Loyalty tier used for pricing rules.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerProfileInfo.PaymentTermDays">
+            <summary>
+            Default payment term in days.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Customers.CustomerProfileInfo.PreferredCurrency">
+            <summary>
+            Preferred invoice currency.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Domain.Inventory.Ordering.Advanced.CustomerProfile.CustomerProfile">
+            <summary>
+            Advanced customer profile model kept in a deliberately long namespace.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Domain.Inventory.Ordering.Advanced.CustomerProfile.CustomerProfile.Id">
+            <summary>
+            Profile identifier.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Domain.Inventory.Ordering.Advanced.CustomerProfile.CustomerProfile.Segment">
+            <summary>
+            Customer segment name.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Domain.Inventory.Ordering.Advanced.CustomerProfile.CustomerProfile.IsActive">
+            <summary>
+            Whether advanced ordering rules are enabled.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Domain.Inventory.Ordering.Advanced.CustomerProfile.InternalCustomerScore">
+            <summary>
+            Internal scoring model intentionally excluded from client generation.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Domain.Inventory.Ordering.Advanced.CustomerProfile.InternalCustomerScore.CustomerId">
+            <summary>
+            Internal customer identifier.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Domain.Inventory.Ordering.Advanced.CustomerProfile.InternalCustomerScore.Score">
+            <summary>
+            Private risk score.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Orders.OrderResponse">
+            <summary>
+            Order details returned by the API.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.OrderResponse.Id">
+            <summary>
+            Unique order identifier.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.OrderResponse.OrderNumber">
+            <summary>
+            Customer purchase order reference.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.OrderResponse.Status">
+            <summary>
+            Current order status.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.OrderResponse.Priority">
+            <summary>
+            Order priority where lower values are handled first.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.OrderResponse.Customer">
+            <summary>
+            Customer that placed the order.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.OrderResponse.ProductItems">
+            <summary>
+            Ordered products.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.OrderResponse.Payment">
+            <summary>
+            Payment totals for the order.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.OrderResponse.Delivery">
+            <summary>
+            Requested delivery information.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Orders.CreateOrderRequest">
+            <summary>
+            Request body used to create an order.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.CreateOrderRequest.CustomerId">
+            <summary>
+            Customer placing the order.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.CreateOrderRequest.OrderNumber">
+            <summary>
+            Client-provided order reference.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.CreateOrderRequest.Priority">
+            <summary>
+            Order priority where lower values are handled first.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.CreateOrderRequest.Currency">
+            <summary>
+            Currency used for all order amounts.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.CreateOrderRequest.Items">
+            <summary>
+            Products included in the order.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Orders.CreateOrderItemRequest">
+            <summary>
+            Product item in a create order request.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.CreateOrderItemRequest.ProductId">
+            <summary>
+            Product identifier.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.CreateOrderItemRequest.Quantity">
+            <summary>
+            Quantity ordered.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Orders.ProductItem">
+            <summary>
+            Product line item in an order response.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.ProductItem.ProductId">
+            <summary>
+            Product identifier.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.ProductItem.Name">
+            <summary>
+            Product name.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.ProductItem.Quantity">
+            <summary>
+            Quantity ordered.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.ProductItem.UnitPrice">
+            <summary>
+            Unit price.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.ProductItem.LineTotal">
+            <summary>
+            Line total.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Orders.PaymentSummary">
+            <summary>
+            Payment totals for an order.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.PaymentSummary.Currency">
+            <summary>
+            Transaction currency.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.PaymentSummary.Subtotal">
+            <summary>
+            Subtotal before tax.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.PaymentSummary.Tax">
+            <summary>
+            Tax amount.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.PaymentSummary.Total">
+            <summary>
+            Total including tax.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.PaymentSummary.IsPaid">
+            <summary>
+            Whether payment has been captured.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Orders.DeliveryPlan">
+            <summary>
+            Delivery planning details.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.DeliveryPlan.Carrier">
+            <summary>
+            Preferred carrier.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.DeliveryPlan.EstimatedDate">
+            <summary>
+            Estimated delivery date.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Orders.DeliveryPlan.AllowWeekendDelivery">
+            <summary>
+            Whether weekend delivery is allowed.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Products.ProductResponse">
+            <summary>
+            Product details returned by the API.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.ProductResponse.Id">
+            <summary>
+            Product identifier.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.ProductResponse.Sku">
+            <summary>
+            Stock keeping unit.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.ProductResponse.Name">
+            <summary>
+            Product name.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.ProductResponse.Price">
+            <summary>
+            Unit price in the configured currency.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.ProductResponse.Currency">
+            <summary>
+            Currency used for the price.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.ProductResponse.IsActive">
+            <summary>
+            Whether the product can be sold.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.ProductResponse.Inventory">
+            <summary>
+            Product inventory details.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Products.CreateProductRequest">
+            <summary>
+            Request body used to create a product.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.CreateProductRequest.Sku">
+            <summary>
+            Stock keeping unit.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.CreateProductRequest.Name">
+            <summary>
+            Product display name.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.CreateProductRequest.Price">
+            <summary>
+            Unit price.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.CreateProductRequest.Currency">
+            <summary>
+            Price currency.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.CreateProductRequest.QuantityAvailable">
+            <summary>
+            Initial available quantity.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Products.InventoryInfo">
+            <summary>
+            Inventory details for a product.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.InventoryInfo.QuantityAvailable">
+            <summary>
+            Quantity available to sell.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.InventoryInfo.Warehouse">
+            <summary>
+            Warehouse location.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.InventoryInfo.ReorderLevel">
+            <summary>
+            Reorder threshold.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Models.Products.WarehouseInfo">
+            <summary>
+            Warehouse location details.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.WarehouseInfo.Code">
+            <summary>
+            Warehouse code.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Models.Products.WarehouseInfo.City">
+            <summary>
+            Warehouse city.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.OpenApi.ExcludeFromClientGenerationDocumentFilter">
+            <summary>
+            Removes endpoints and schemas marked as excluded from the generated OpenAPI document.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.OpenApi.ExcludeFromClientGenerationDocumentFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:AssessmentApi.OpenApi.StandardErrorResponsesOperationFilter">
+            <summary>
+            Adds the standard API error model to common failure responses.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.OpenApi.StandardErrorResponsesOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:AssessmentApi.Serialization.ApiJsonContext">
+            <summary>
+            Source-generated JSON metadata used by ASP.NET Core for request and response serialization.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.Boolean">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.Decimal">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.ApiErrorResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.ApiResponsePagedResultProductResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.ApiResponseCustomerResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.ApiResponseOrderResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.ApiResponseProductResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.PagedResultProductResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.AddressInfo">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.CustomerInfo">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.CustomerProfileInfo">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.CustomerResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.CustomerProfile">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.CreateOrderItemRequest">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.CreateOrderRequest">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.DeliveryPlan">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.OrderResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.PaymentSummary">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.ProductItem">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.CreateProductRequest">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.InventoryInfo">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.ProductResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.WarehouseInfo">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.DictionaryStringStringArray">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.IReadOnlyDictionaryStringStringArray">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.IReadOnlyListCreateOrderItemRequest">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.IReadOnlyListProductItem">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.IReadOnlyListProductResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.DateOnly">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.DateTimeOffset">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.Int32">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.StringArray">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:AssessmentApi.Serialization.ApiJsonContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Serialization.ApiJsonContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:AssessmentApi.Serialization.ApiJsonContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AssessmentApi.Serialization.ApiJsonContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AssessmentApi.Services.CustomerStore">
+            <summary>
+            In-memory customer data used by the sample API.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Services.CustomerStore.GetByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets a customer by identifier.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Services.OrderStore">
+            <summary>
+            In-memory order data used by the sample API.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Services.OrderStore.#ctor(AssessmentApi.Services.CustomerStore,AssessmentApi.Services.ProductStore)">
+            <summary>
+            In-memory order data used by the sample API.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Services.OrderStore.GetByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets an order by identifier.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Services.OrderStore.CreateAsync(AssessmentApi.Models.Orders.CreateOrderRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates an order in memory.
+            </summary>
+        </member>
+        <member name="T:AssessmentApi.Services.ProductStore">
+            <summary>
+            In-memory product data used by the sample API.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Services.ProductStore.GetPageAsync(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Returns a page of products.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Services.ProductStore.GetByIdAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets a product by identifier.
+            </summary>
+        </member>
+        <member name="M:AssessmentApi.Services.ProductStore.CreateAsync(AssessmentApi.Models.Products.CreateProductRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a product in memory.
+            </summary>
+        </member>
+        <member name="T:Program">
+            <summary>
+            Application entry point for the assessment API.
+            </summary>
+        </member>
+    </members>
+</doc>

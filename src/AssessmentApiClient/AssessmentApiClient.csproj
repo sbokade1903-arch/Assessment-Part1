@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <JsonSerializerIsReflectionEnabledByDefault>false</JsonSerializerIsReflectionEnabledByDefault>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Generated\AssessmentApiClient.g.cs" />
+    <Compile Include="Generated\AssessmentApiClient.g.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.8" />
+    <PackageReference Include="NSwag.MSBuild" Version="14.7.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageDownload Include="Swashbuckle.AspNetCore.Cli" Version="[6.9.0]" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AssessmentApi\AssessmentApi.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+  <Target Name="GenerateAssessmentApiClient" BeforeTargets="BeforeCompile">
+    <MakeDir Directories="$(IntermediateOutputPath)" />
+    <Exec Command="dotnet &quot;$(NuGetPackageRoot)swashbuckle.aspnetcore.cli\6.9.0\tools\net8.0\any\dotnet-swagger.dll&quot; tofile --output &quot;$(IntermediateOutputPath)assessment-api.json&quot; &quot;$(MSBuildProjectDirectory)\..\AssessmentApi\bin\$(Configuration)\net10.0\AssessmentApi.dll&quot; v1" />
+    <Exec Command="$(NSwagExe_Net100) openapi2csclient /input:&quot;$(IntermediateOutputPath)assessment-api.json&quot; /output:&quot;$(MSBuildProjectDirectory)\Generated\AssessmentApiClient.g.cs&quot; /namespace:AssessmentApiClient.Models /classname:AssessmentHttpClient /operationGenerationMode:SingleClientFromOperationId /generateClientInterfaces:true /injectHttpClient:true /disposeHttpClient:false /useBaseUrl:false /jsonLibrary:SystemTextJson /generateExceptionClasses:false /exceptionClass:AssessmentApiClient.AssessmentApiException /generateDtoTypes:true /generateOptionalPropertiesAsNullable:true /generateNullableReferenceTypes:true" />
+  </Target>
+
+</Project>
