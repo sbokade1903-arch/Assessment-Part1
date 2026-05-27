@@ -2,7 +2,7 @@
 
 Only Part 1 of the assessment is implemented intentionally.
 
-This solution contains a .NET 10 ASP.NET Core Web API and a generated .NET 10 API client. Part 2 items such as Vue, Nuxt, frontend hosts, Tailwind, Module Federation, and Web Components are intentionally not included.
+This solution contains a .NET 10 ASP.NET Core Web API and a generated .NET 10 API client.
 
 ## Projects
 
